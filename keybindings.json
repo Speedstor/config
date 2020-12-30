@@ -1,0 +1,122 @@
+// // Place your key bindings in this file to override the defaultsauto[]
+// [
+//     {
+//         "key": "ctrl+5",
+//         "command": "-workbench.action.focusFifthEditorGroup"
+//     },
+//     {
+//         "key": "ctrl+5",
+//         "command": "workbench.action.terminal.toggleTerminal"
+//     },
+//     {
+//         "key": "ctrl+`",
+//         "command": "-workbench.action.terminal.toggleTerminal"
+//     },
+// ]
+
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+a",
+        "command": "cursorEnd",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+5",
+        "command": "-workbench.action.focusFifthEditorGroup"
+    },
+    {
+        "key": "ctrl+5",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "alt+h",
+        "command": "cursorLeft"
+    },
+    {
+        "key": "alt+j",
+        "command": "cursorDown"
+    },
+    {
+        "key": "alt+k",
+        "command": "cursorUp"
+    },
+    {
+        "key": "alt+x",
+        "command": "deleteRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+o",
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+shift+o",
+        "command": "editor.action.insertLineBefore",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "cursorRight"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "notebook.format",
+        "when": "notebookEditable && !editorTextFocus && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-notebook.format",
+        "when": "notebookEditable && !editorTextFocus && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-notebook.formatCell",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument.none",
+        "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorHasDocumentFormattingProvider && !editorReadonly"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "cursorMove",
+        "args": {
+            "to": "up",
+            "by": "line",
+            "value": 20
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "cursorMove",
+        "args": {
+            "to": "down",
+            "by": "line",
+            "value": 20
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
+]
