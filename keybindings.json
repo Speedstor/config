@@ -104,7 +104,27 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "alt+u",
+        "command": "cursorMove",
+        "args": {
+            "to": "up",
+            "by": "line",
+            "value": 20
+        },
+        "when": "editorTextFocus"
+    },
+    {
         "key": "ctrl+d",
+        "command": "cursorMove",
+        "args": {
+            "to": "down",
+            "by": "line",
+            "value": 20
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+d",
         "command": "cursorMove",
         "args": {
             "to": "down",
