@@ -6,7 +6,10 @@ set ai
 set number
 set hlsearch
 set ruler
+set relativenumber
 highlight Comment ctermfg=green
+
+nnoremap <Leader>r :so $MYVIMRC<CR>
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
@@ -32,7 +35,7 @@ nnoremap yM "+yM
 nnoremap yL "+yL
 vnoremap y "+y
 
-noremap : :set wildmode=longest,full<CR>:
+nnoremap : :set wildmode=full<CR>:
 inoremap <C-n> <Esc>:set wildmode=longest,list,full<CR>a<C-n>
 
 set cursorline
@@ -75,6 +78,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ap/vim-buftabline'
+" Plug 'mkitt/tabline.vim'
 " Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
@@ -82,6 +87,17 @@ call plug#end()
 " Color Scheme
 colorscheme onedark
 
+" buftablin
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-Tab> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+nnoremap <C-S-Tab> :bprev<CR>
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 0
+" in airline
+" let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -89,7 +105,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -113,13 +129,13 @@ let g:NERDTreeDirArrowCollapsible="-"
 map <Leader>vv :Vifm<CR>
 map <Leader>vs :VsplitVifm<CR>
 map <Leader>xp :SplitVifm<CR>
-map <Leader>dv :DiffVifm<CR>
+map <Leader>vd :DiffVifm<CR>
 map <Leader>tv :TabVifm<CR>
 
-
+"
 highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 
-
+" Auto-Pair
 """""""""""""""""""""""""""""""""""""""""""
 " Programs to install
 "
@@ -127,3 +143,4 @@ highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 " sudo apt-get install vifm
 " sudo apt-get install silversearcher-ag
 " sudo apt-get install 
+
