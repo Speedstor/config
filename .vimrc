@@ -9,6 +9,9 @@ set ruler
 set relativenumber
 highlight Comment ctermfg=green
 
+" set select color in visual modes
+hi Visual term=reverse cterm=reverse guibg=Grey
+
 nnoremap <Leader>r :so $MYVIMRC<CR>
 
 filetype plugin indent on
