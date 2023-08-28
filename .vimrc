@@ -14,6 +14,8 @@ hi Visual term=reverse cterm=reverse guibg=Grey
 
 nnoremap <Leader>r :so $MYVIMRC<CR>
 
+nmap <CR> :a<CR><CR>.<CR>
+
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
