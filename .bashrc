@@ -57,16 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
+# If this is an xterm set the title to userhost:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -90,7 +90,9 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
+alias lal='ls -A1'
 alias l='ls -CF'
+alias clip='xclip -selection clipboard'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -116,10 +118,22 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/var/oss-cad-suite/bin
 
-#additional
+alias serial="python3 -m serial.tools.miniterm -"
+alias tyflash="tycmd upload build/zephyr/zephyr.hex --nocheck"
+alias rbash="source ~/.bashrc"
+alias sl="ls"
+alias sourceYosys="source /var/oss-cad-suite/environment"
+alias cats="highlight -O ansi"
 
-export TZ=America/Los_Angeles
-export PS1="\[\033[38;5;76m\]>\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;243m\][\[$(tput sgr0)\]\[\033[38;5;248m\]\@\[$(tput sgr0)\]\[\033[38;5;243m\]]\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;134m\]\u\[$(tput sgr0)\]\[$(tput bold)\]@\[$(tput sgr0)\]\[\033[38;5;71m\]\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;220m\]\[\033[48;5;238m\]\w\[$(tput sgr0)\] \\$ \[$(tput sgr0)\]"
+shopt -s extglob
+source /var/oss-cad-suite/environment
 
-LS_COLORS=$LS_COLORS:'di=0;36:' ; export LS_COLORS
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+export CSE148_TOOLS="/home/aldri/fun/cse148/mips_cpu_deps"
+export PATH="/var/oss-cad-suite/bin:$PATH"
+
+alias blank="gnome-screensaver-command -a"
