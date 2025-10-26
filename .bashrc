@@ -104,7 +104,8 @@ alias clip='xclip -selection clipboard'
 alias serial="python3 -m serial.tools.miniterm -"
 alias tyflash="tycmd upload build/zephyr/zephyr.hex --nocheck"
 alias rbash="source ~/.bashrc"
-alias sl="ls"
+alias sl="ls --color=auto"
+alias ls="ls --color=auto"
 alias cats="highlight -O ansi"
 alias blank="gnome-screensaver-command -a"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
