@@ -76,12 +76,22 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # colored prompt, if the terminal has the capability
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     # We have color support; assume it's compliant with Ecma-48
-    PS1='\[\e[38;5;245m\]---------------------\[\e[0m\]\n> ${debian_chroot:+($debian_chroot)}\[\e[32;1m\]\u\[\e[0m\]:\[\e[34;1m\]\w\[\e[0m\]\$ '
+    # PS1='\[\e[38;5;245m\]---------------------\[\e[0m\]\n> ${debian_chroot:+($debian_chroot)}\[\e[32;1m\]\u\[\e[0m\]:\[\e[34;1m\]\w\[\e[0m\]\$ '
+
+    VENV_LINE='\n${VIRTUAL_ENV:+\[\e[38;5;245m\]($(basename "$VIRTUAL_ENV")) \[\e[0m\]}'
+    SEPARATOR='\[\e[38;5;245m\]---------------------\[\e[0m\]\n'
+    MAIN_PROMPT='> ${debian_chroot:+($debian_chroot)}\[\e[32;1m\]\u\[\e[0m\]:\[\e[34;1m\]\w\[\e[0m\]\$ '
 else
-    PS1='---------------------\n> ${debian_chroot:+($debian_chroot)}:\w\$ '
+    # PS1='---------------------\n> ${debian_chroot:+($debian_chroot)}:\w\$ '
+
+    VENV_LINE='\n${VIRTUAL_ENV:+($(basename "$VIRTUAL_ENV")) }'
+    SEPARATOR='---------------------'
+    MAIN_PROMPT='> ${debian_chroot:+($debian_chroot)}:\w\$ '
 fi
+PS1="${VENV_LINE}${SEPARATOR}${MAIN_PROMPT}"
 
 # Custom Software OS_ENV
 export PATH=$PATH:/usr/local/go/bin
